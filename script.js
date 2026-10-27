@@ -22,16 +22,18 @@ function listar() {
   // Ajusta o conteúdo visível
   tabListar.classList.add('active');
   tabCadastrar.classList.remove('active');
-  let lista = '<b>Nome - Media - Situação </b><br>';
+  let lista = '<table>';
+  lista += '<tr><th>Nome</th> <th>Media</th> <th>Situação</th></tr>';
   for (let i = 0; i < turma.length; i++) {
     lista =
       lista +
-      turma[i].nome +
-      ' - ' +
-      turma[i].media.toFixed(2) + ' - ' +
-      turma[i].estado +
-      '<br>';
+      "<tr>"+
+      "<td>"+turma[i].nome +"</td>"+
+      "<td>"+turma[i].media.toFixed(2) +"</td>"+
+      "<td>"+turma[i].estado +"</td>"
+      "</tr>";
   }
+  lista += "</table>"
   document.getElementById('alunos').innerHTML = lista;
 }
 
