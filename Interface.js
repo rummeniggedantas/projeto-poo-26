@@ -20,7 +20,7 @@ static listar(turma) {
   const tabCadastrar = document.getElementById('tab-cadastrar');
   const btnListar = document.getElementById('btn-listar');
   const tabListar = document.getElementById('tab-listar');
-
+  const mudarMedia = "recalculaMadia()";
   btnListar.classList.add('active');
   btnCadastrar.classList.remove('active');
 
@@ -28,12 +28,15 @@ static listar(turma) {
   tabListar.classList.add('active');
   tabCadastrar.classList.remove('active');
   let lista = '<table>';
-  lista += '<tr><th>Nome</th> <th>Media</th> <th>Situação</th></tr>';
+  lista += '<tr><th>Nome</th> <th>N1</th> <th>N2</th> <th>N3</th><th>Media</th> <th>Situação</th></tr>';
   for (let i = 0; i < turma.length; i++) {
     lista =
       lista +
       "<tr>"+
       "<td>"+turma[i].getNome() +"</td>"+
+      "<td><input onchange="+turma[i].nota1 +"</td>"+
+      "<td>"+turma[i].nota2 +"</td>"+
+      "<td>"+turma[i].nota3 +"</td>"+
       "<td>"+turma[i].media.toFixed(2) +"</td>"+
       "<td>"+turma[i].estado +"</td>"
       "</tr>";
