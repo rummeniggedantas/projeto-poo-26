@@ -4,10 +4,16 @@ function listarAluno(){
     Interface.listar(turma);
 }
 
-function btnSalvar(){
-   let a = Interface.salvar();
-   turma.push(a);
+/*incompleto*/
+function btnSalvarAluno(){
+   let a = Interface.salvarAluno();
+   turma.matricular
 }
+
+function btnSalvarTurma(){
+    const t = Interface.salvarTurma();
+    turmas.push(t);
+ }
 
 function cadastroAluno(){
     Interface.cadastrar();

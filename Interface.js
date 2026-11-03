@@ -9,7 +9,7 @@ class Interface{
 constructor(){
 
 }    
-static salvar() {
+static salvarAluno() {
   let nome = document.getElementById('nome').value;
   let n1 = Number(document.getElementById('n1').value);
   let n2 = Number(document.getElementById('n2').value);
@@ -74,6 +74,15 @@ static cadastrarTurma(){
   this.tabListar.classList.remove('active');
   this.tabCadastrarTurma.classList.add('active');
   this.tabCadastrar.classList.remove('active');
+
+}
+
+static salvarTurma() {
+  const curso = document.getElementById('curso').value;
+  const prof = document.getElementById('prof').value;
+  const t1 = new Turma(curso, prof);
+  alert('turma cadastrada');
+  return t1;
 }
 
 static pegarElementos(){
