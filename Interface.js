@@ -1,4 +1,10 @@
 class Interface{
+  btnCadastrar;
+  tabCadastrar;
+  btnListar;
+  tabListar;
+  btnCadastrarTurma;
+  tabCadastrarTurma;
 
 constructor(){
 
@@ -16,17 +22,17 @@ static salvar() {
   return a1;
 }
 static listar(turma) {
-  const btnCadastrar = document.getElementById('btn-cadastrar');
-  const tabCadastrar = document.getElementById('tab-cadastrar');
-  const btnListar = document.getElementById('btn-listar');
-  const tabListar = document.getElementById('tab-listar');
+  Interface.pegarElementos();
   const mudarMedia = "recalculaMadia()";
-  btnListar.classList.add('active');
-  btnCadastrar.classList.remove('active');
+  this.btnListar.classList.add('active');
+  this.btnCadastrar.classList.remove('active');
+  this.btnCadastrarTurma.classList.remove('active');
+
 
   // Ajusta o conteúdo visível
-  tabListar.classList.add('active');
-  tabCadastrar.classList.remove('active');
+  this.tabListar.classList.add('active');
+  this.tabCadastrar.classList.remove('active');
+  this.tabCadastrarTurma.classList.remove('active');
   let lista = '<table>';
   lista += '<tr><th>Nome</th> <th>N1</th> <th>N2</th> <th>N3</th><th>Media</th> <th>Situação</th></tr>';
   for (let i = 0; i < turma.length; i++) {
@@ -34,9 +40,9 @@ static listar(turma) {
       lista +
       "<tr>"+
       "<td>"+turma[i].getNome() +"</td>"+
-      "<td><input onchange="+turma[i].nota1 +"</td>"+
-      "<td>"+turma[i].nota2 +"</td>"+
-      "<td>"+turma[i].nota3 +"</td>"+
+      "<td>"+turma[i].getNota1() +"</td>"+
+      "<td>"+turma[i].getNota2() +"</td>"+
+      "<td>"+turma[i].getNota3() +"</td>"+
       "<td>"+turma[i].media.toFixed(2) +"</td>"+
       "<td>"+turma[i].estado +"</td>"
       "</tr>";
@@ -46,17 +52,36 @@ static listar(turma) {
 }
 
 static cadastrar() {
-  const btnCadastrar = document.getElementById('btn-cadastrar');
-  const tabCadastrar = document.getElementById('tab-cadastrar');
-  const btnListar = document.getElementById('btn-listar');
-  const tabListar = document.getElementById('tab-listar');
-
-  btnListar.classList.remove('active');
-  btnCadastrar.classList.add('active');
+  Interface.pegarElementos();
+  this.btnListar.classList.remove('active');
+  this.btnCadastrarTurma.classList.remove('active');
+  this.btnCadastrar.classList.add('active');  
 
   // Ajusta o conteúdo visível
-  tabListar.classList.remove('active');
-  tabCadastrar.classList.add('active');
+  this.tabListar.classList.remove('active');
+  this.tabCadastrarTurma.classList.remove('active');
+  this.tabCadastrar.classList.add('active');
   //document.getElementById("media").innerHTML = m;
+}
+
+static cadastrarTurma(){
+  Interface.pegarElementos();
+  this.btnListar.classList.remove('active');
+  this.btnCadastrarTurma.classList.add('active');
+  this.btnCadastrar.classList.remove('active');
+  
+  // Ajusta o conteúdo visível
+  this.tabListar.classList.remove('active');
+  this.tabCadastrarTurma.classList.add('active');
+  this.tabCadastrar.classList.remove('active');
+}
+
+static pegarElementos(){
+  this.btnCadastrar = document.getElementById('btn-cadastrar');
+  this.tabCadastrar = document.getElementById('tab-cadastrar');
+  this.btnListar = document.getElementById('btn-listar');
+  this.tabListar = document.getElementById('tab-listar');
+  this.btnCadastrarTurma = document.getElementById('btn-cadastrar-turma');
+  this.tabCadastrarTurma = document.getElementById('tab-cadastrar-turma');
 }
 }//fim da classe
