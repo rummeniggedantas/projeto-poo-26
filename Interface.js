@@ -14,7 +14,7 @@ static salvarAluno() {
   let n1 = Number(document.getElementById('n1').value);
   let n2 = Number(document.getElementById('n2').value);
   let n3 = Number(document.getElementById('n3').value);
-  let a1 = new Aluno(nome, n1, n2, n3);
+  let a1 = new Aluno(nome,"100","ativo", n1, n2, n3);
   let m = a1.gerarMedia(n1, n2, n3);
   a1.gerarEstado(m);
   //turma[turma.length] = a1;
@@ -44,7 +44,7 @@ static listar(turmas) {
     listaTurmas = listaTurmas + 
     "<tr>"+
     "<td colspan='3'>"+turmas[t].getCurso() +"</td>"+
-    "<td colspan='3'>"+turmas[t].getProfessor() +"</td>"+
+    "<td colspan='3'>"+turmas[t].getProfessor().getNome() +"</td>"+
     "</tr>";
     let lista = '';
     lista += '<tr><th>Nome</th> <th>N1</th> <th>N2</th> <th>N3</th><th>Media</th> <th>Situação</th></tr>';
@@ -96,7 +96,10 @@ static cadastrarTurma(){
 
 static salvarTurma() {
   const curso = document.getElementById('curso').value;
-  const prof = document.getElementById('prof').value;
+  const nomeProf = document.getElementById('prof').value;
+  const mat = document.getElementById('mat').value;
+  const est = document.getElementById('est').value;
+  let prof = new Professor(nomeProf,mat,est);
   const t1 = new Turma(curso, prof);
   
   //busca o select no HTML para inserir uma tuma como opção
