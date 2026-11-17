@@ -1,13 +1,17 @@
 let turmas = [];
 
 function listarAluno(){
-    Interface.listar(turma);
+    Interface.listar(turmas);
 }
 
 /*incompleto*/
 function btnSalvarAluno(){
    let a = Interface.salvarAluno();
-   turma.matricular
+   let codigo = Interface.pegarIndiceTurma();
+   let curso = Interface.pegarCursoSelecionado();
+   let x = turmas[codigo-1].getAlunos().push(a);
+   //console.log(turmas.length)
+   //console.log(x);
 }
 
 function btnSalvarTurma(){
