@@ -37,15 +37,16 @@ static listar(turmas) {
   let listaTurmas = '<table>'
   
   for(let t=0;t <turmas.length;t++){
-    listaTurmas += '<tr><th>Curso</th> <th>Professor</th></tr>';
+
+    listaTurmas += '<tr><th colspan="3">Curso</th> <th colspan="3">Professor</th></tr>';
     let turma = turmas[t].getAlunos();
     console.log(turma)
     listaTurmas = listaTurmas + 
     "<tr>"+
-    "<td>"+turmas[t].getCurso() +"</td>"+
-    "<td>"+turmas[t].getProfessor() +"</td>"+
+    "<td colspan='3'>"+turmas[t].getCurso() +"</td>"+
+    "<td colspan='3'>"+turmas[t].getProfessor() +"</td>"+
     "</tr>";
-    let lista = '<table>';
+    let lista = '';
     lista += '<tr><th>Nome</th> <th>N1</th> <th>N2</th> <th>N3</th><th>Media</th> <th>Situação</th></tr>';
     for (let i = 0; i < turma.length; i++) {
       lista =
@@ -59,9 +60,9 @@ static listar(turmas) {
         "<td>"+turma[i].estado +"</td>"
         "</tr>";
     }
-    lista += "</table>"
+    //lista += "</table>"
     //document.getElementById('alunos').innerHTML = lista;
-    listaTurmas += lista+"</table>";
+    listaTurmas += lista+"<tr></tr>";
 }
 listaTurmas += "</table>"
 document.getElementById('alunos').innerHTML = listaTurmas;
